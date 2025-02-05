@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, CSP_NONCE} from '@angular/core';
 import {LoadingService} from './loading/loading.service';
 import {MessagesService} from './messages/messages.service';
 import {AuthStore} from './services/auth.store';
@@ -9,7 +9,13 @@ import {AuthStore} from './services/auth.store';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: false
+    standalone: false,
+    providers: [
+      {
+          provide: CSP_NONCE,
+          useValue: 'randomNoncePlaceholder'
+      },
+  ],
 })
 export class AppComponent implements  OnInit {
 
